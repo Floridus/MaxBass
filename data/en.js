@@ -1,0 +1,23 @@
+module.exports = {
+	'lessons':'My Lessons',
+	'free':'Free',
+	'challenge':'Weekly Challenge',
+	'tour':'Tour Dates',
+	'about':'About us',
+	'help':'Help',
+	'mgt':'Management',
+	'profil':'My Profile',
+	'login':'Login',
+	'register':'Register',
+	'logout':'Logout',
+	'imprint':'Imprint',
+	'email':'Email Address',
+	'password':'Password',
+	'forget':'Forget Password?',
+	'firstname':'First Name',
+	'lastname':'Last Name',
+	'retypePW':'Retype Password',
+	'birthday':'Birthday',
+	'level':'Level',
+	'style':'Style'
+}

@@ -1,0 +1,56 @@
+Improve the given sources in several ways
+
+
+1.) Add user / admin documentation
+	a) README.txt: 
+		what is this web-app good for?
+		name of the author, license (GPL?) and version
+	b) INSTALL.txt: 
+		requirements (if any, e.g. db) 
+		and how to start up the web-app
+		(and how to test, if the app works: curl?)
+		name of the author
+	c) CHANGELOG: <= optional
+		date and important changings
+		
+
+		
+2.) improve configuration
+	a) change package.json to fit your needs
+		for the packages could be installed with
+		"npm install"
+	b) add version/name into the 
+		"config.js" file
+		and USE the config for your app, e.g.:
+			...
+			var config = require('../config')
+			srv= ...
+			srv.listen(config.port, config.server);
+			...
+	c) allow the server to be started with commandline option 
+		for another port
+		e.g.: ./server.js 9777
+		something like:
+			...
+			config.port = (process.argv.length > 2) ? process.argv[2] : config.port
+			...
+	
+3.) a) check the developer documentation
+		check Every console.log(...) to output sensible info
+		distinquish between INFO and DEBUG
+		and/or remove "useless" output
+		
+4.) create test cases
+	test with many different JSON/HTML/js/css urls!
+
+5.) improve the app
+	a) catch the errors => create html/json error pages
+	b) check improve functionality
+		save
+		update
+		delete
+		(song)resources
+	c) check templates for navigation
+	
+6.) make it beautiful
+	a) add css styles

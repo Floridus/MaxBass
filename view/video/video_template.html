@@ -1,0 +1,55 @@
+
+	<h1>{TITLE}</h1> 
+	<div class="row">
+		<div class="col-md-6">
+			<video width="320" height="240" controls>
+				<source src="{SOURCE}" type="video/mp4">
+				Your browser does not support the video tag.
+			</video>
+		</div>
+		<div class="col-md-6">
+			<br>
+			<br>
+			<table class="table table-striped table-bordered table-hover table-condensed">
+				<tr class="warning">
+					<th>Owner:</th>
+					<td>{OWNER}</td>
+				</tr>
+				<tr class="danger">
+					<th>Length:</th>
+					<td>{LENGTH}</td>
+				</tr>
+				<tr class="warning">
+					<th>Category:</th>
+					<td>{CATEGORY}</td>
+				</tr>
+				<tr class="danger">
+					<th>Level:</th>
+					<td>{LEVEL}</td>
+				</tr>
+				<tr class="warning">
+					<th>Description:</th>
+					<td>{DESCRIPTION}</td>
+				</tr>
+			</table>
+			<center>
+			<table class="form-buttons {INLOGGED}">
+				<tr>
+					<td>
+						<form action="form.html" method="post">
+							<input type="hidden" name="id" value="{VIDEOID}">
+							<input class="btn btn-warning" type="submit" name="update" value="Edit">
+						</form>
+					</td>
+					<td>
+						<form action="deletevideo.html" method="post">
+							<input type="hidden" name="id" value="{VIDEOID}">
+							<input class="btn btn-danger" type="submit" name="delete" value="Remove">
+						</form>
+					</td>
+				</tr>
+			</table>
+			</center>
+		</div>
+	</div>
+	<br>

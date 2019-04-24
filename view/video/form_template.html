@@ -1,0 +1,39 @@
+
+	<form action="{NEXTACTION}" method="post">
+		<input type="hidden" name="videoid" value="{VIDEOID}">
+		<div class="row">
+			<div class="col-md-6">
+				<div class="form-group">
+					<label for="title" class="control-label">Title</label>
+					<input type="text" class="form-control" id="title" name="title" required title="Please enter a title" placeholder="Title...">
+				</div>
+				<div class="form-group">
+					<label for="length" class="control-label">Length of the video</label>
+					<input type="text" class="form-control" id="length" name="length" required title="Please enter the length of the video" placeholder="00:00">
+				</div>
+				<div class="form-group">
+					<label for="music-style" class="control-label">Music Style</label>
+					<select id="music-style" name="music-style" class="form-control">
+						<option>Rock</option>
+						<option>Jazz</option>
+						<option>Blues</option>
+						<option>Pop</option>
+						<option>Punk</option>
+					</select>
+				</div>
+			</div>
+			<div class="col-md-6">
+				<div class="form-group">
+					<label class="control-label">Level</label><br>
+					<input id="level" name="level" type="text">
+				</div>
+				<div class="form-group">
+					<label class="control-label">Description</label>
+					<textarea name="description" class="form-control" rows="5" placeholder="Write a description..."></textarea>
+				</div>
+			</div>
+			<div class="col-md-12">
+				<center><button type="submit" class="btn btn-warning">{SUBMITTEXT}</button></center>
+			</div>
+		</div>
+	</form>

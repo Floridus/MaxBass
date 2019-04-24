@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+	<head>	
+		<title>{SITETITLE}</title>
+		
+		<link rel="shortcut icon" href="/public/img/favicon.ico" type="image/x-icon" />
+		
+		<link rel="stylesheet" href="/public/css/bootstrap.min.css" type="text/css">
+		<link rel="stylesheet" href="/public/css/bootstrap-slider.css" type="text/css">
+		<link rel="stylesheet" href="/public/css/font-awesome.min.css" type="text/css">
+		<link rel="stylesheet" href="/public/css/main.css" type="text/css">
+		
+		<script src="/public/js/jquery.min.js" type="text/javascript"></script>
+		<script src="/public/js/bootstrap.min.js" type="text/javascript"></script>
+		<script src="/public/js/bootstrap-slider.min.js" type="text/javascript"></script>
+	</head>
+	<body>
+		<header>
+			<div class="container">
+				<div class="row">
+					<div class="col-md-1">
+						<table class="top-lang">
+							<tr>
+								<td><a id="lang_en" href=""><img src="/public/img/english.png" alt="english"></a></td>
+								<td><a id="lang_de" href=""><img src="/public/img/german.png" alt="deutsch"></a></td>
+							</tr>
+						</table>
+					</div>
+					<div class="col-md-8 col-md-offset-1">
+						<center><a href="{LANG}/page/welcome.html"><img src="/public/img/maxbass_logo.jpg" alt="logo" height="150"></a></center>
+					</div>
+					<div class="col-md-2">
+						<table class="top-buttons">
+							<tr>
+								<td class="{INLOGGED}"><a class="btn btn-warning" href="#" role="button"><i class="fa fa-user"></i> {PROFIL}</a></td>
+								<td class="{INLOGGED}"><button id="logout" class="btn btn-warning"><i class="fa fa-power-off"></i> {LOGOUT}</button></td>
+								<td class="{OFFLINE}"><button class="btn btn-warning" data-toggle="modal" data-target="#loginModal"><i class="fa fa-user"></i> {LOGIN}</button></td>
+							</tr>
+						</table>
+					</div>
+				</div>
+			</div>
+			<nav class="navbar navbar-default">
+				<div class="container-fluid">
+					<!-- Brand and toggle get grouped for better mobile display -->
+					<div class="navbar-header">
+						<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+							<span class="sr-only">Toggle navigation</span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</button>
+					</div>
+
+					<!-- Collect the nav links, forms, and other content for toggling -->
+					<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+						<ul class="nav navbar-nav">
+							<li class="{INLOGGED}"><a href="{LANG}/video/all.html"><i class="fa fa-user-secret"></i><br>{LESSONS}</a></li>
+							<li class="{OFFLINE}"><a href="{LANG}/video/all.html"><i class="fa fa-headphones"></i><br>{FREE}</a></li>
+							<li><a href="{LANG}/page/challenge.html"><i class="fa fa-comments-o"></i><br>{CHALLENGE}</a></li>
+							<li><a href="{LANG}/page/tour.html"><i class="fa fa-plane"></i><br>{TOUR}</a></li>
+							<li><a href="{LANG}/page/about.html"><i class="fa fa-users"></i><br>{ABOUT}</a></li>
+							<li><a href="{LANG}/page/help.html"><i class="fa fa-question-circle"></i><br>{HELP}</a></li>
+							<li class="{INLOGGED}"><a href="{LANG}/video/videomgt.html"><i class="fa fa-fort-awesome"></i><br>{MGT}</a></li>
+							<li class="hidden-md hidden-lg hidden-sm {OFFLINE}"><a data-toggle="modal" data-target="#loginModal"><i class="fa fa-user"></i><br>{LOGIN}</a></li>
+							<li class="hidden-md hidden-lg hidden-sm {INLOGGED}"><a href="#"><i class="fa fa-user"></i><br>{PROFIL}</a></li>
+							<li class="hidden-md hidden-lg hidden-sm {INLOGGED}"><a href="#"><i class="fa fa-power-off"></i><br>{LOGOUT}</a></li>
+						</ul>
+					</div><!-- /.navbar-collapse -->
+				</div><!-- /.container-fluid -->
+			</nav>
+		</header>
+		
+		<section>
+			<div class="container">
+				<div class="row well">
+					<div class="col-md-12">
+						{CONTENTS}
+					</div>
+				</div>
+			</div>
+		</section>
+		<footer>
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						v{VERSION} &copy; {AUTHOR}<br>
+						<a class="other-col" href="{LANG}/page/impressum.html"><i class="fa fa-bank"></i> {IMPRINT} <i class="fa fa-bank"></i></a>
+					</div>
+				</div>
+			</div>
+		</footer>
+	<div class="modal fade" id="loginModal" tabindex="-1" role="dialog">
+		<div class="modal-dialog modal-sm" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true"><i class="fa fa-close"></i></span><span class="sr-only">Close</span></button>
+					<h4 class="modal-title" id="myModalLabel">{LOGIN}</h4>
+				</div>
+				<div class="modal-body">
+					<div class="row">
+						<div class="col-md-12 col-sm-12 col-xs-12">
+							<div class="well">
+								<form id="loginForm" method="POST" action="../user/login.json">
+									<div class="form-group">
+										<input type="email" class="form-control" name="email" required title="Please enter your email address" placeholder="{EMAIL}...">
+									</div>
+									<div class="form-group">
+										<input type="password" class="form-control" name="password" required title="Please enter you password" placeholder="{PASSWORD}...">
+									</div>
+									<div id="loginErrorMsg" class="alert alert-danger hide">Email address or password is wrong</div>
+									<button type="submit" class="btn btn-warning btn-block">{LOGIN}</button>
+									<button type="submit" class="btn btn-danger btn-block" data-toggle="modal" data-target="#registerModal">{REGISTER}</button>
+									<br>
+									<a href="pw_vergessen.php">{FORGET}</a>
+								</form>
+							</div>
+						</div>
+					</div><!-- /.row-->
+				</div><!-- /.modal-body -->
+			</div><!-- /.modal-content -->
+		</div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->
+	
+	<div class="modal fade" id="registerModal" tabindex="-1" role="dialog">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true"><i class="fa fa-close"></i></span><span class="sr-only">Close</span></button>
+					<h4 class="modal-title" id="myModalLabel">{REGISTER}</h4>
+				</div>
+				<div class="modal-body">
+					<div class="well">
+						<div class="row">
+							<form id="registerForm" method="POST" action="../user/register.json">
+							<div class="col-md-6 col-sm-6">
+									<div class="form-group">
+										<label for="firstname" class="control-label">{FIRSTNAME}<font color="red">*</font></label>
+										<input type="text" class="form-control" id="firstname" name="firstname" required title="Please enter your first name" placeholder="{FIRSTNAME}...">
+									</div>
+									<div class="form-group">
+										<label for="password" class="control-label">{PASSWORD}<font color="red">*</font></label>
+										<input type="password" class="form-control" id="password" name="password" required title="Please enter your password" placeholder="{PASSWORD}...">
+									</div>
+									<div class="form-group">
+										<label for="email" class="control-label">{EMAIL}<font color="red">*</font></label>
+										<input type="email" class="form-control" id="email" name="email" required title="Please enter your email address" placeholder="{EMAIL}...">
+									</div>
+									<div class="form-group">
+										<label class="control-label">{LEVEL}<font color="red">*</font></label>
+										<input id="level" name="level" type="text">
+									</div>
+							</div>
+							<div class="col-md-6 col-sm-6">
+									<div class="form-group">
+										<label for="lastname" class="control-label">{LASTNAME}<font color="red">*</font></label>
+										<input type="text" class="form-control" id="lastname" name="lastname" required title="Please enter your last name" placeholder="{LASTNAME}...">
+									</div>
+									<div class="form-group">
+										<label for="passwordTwo" class="control-label">{RETYPE}<font color="red">*</font></label>
+										<input type="password" class="form-control" id="passwordTwo" name="passwordTwo" required title="Please retype your password" placeholder="{RETYPE}...">
+									</div>
+									<div class="form-group">
+										<label for="birthday" class="control-label">{BIRTHDAY}<font color="red">*</font></label>
+										<div id="birthday" class="form-control"></div>
+									</div>
+									<div class="form-group">
+										<label for="music-style" class="control-label">{STYLE}<font color="red">*</font></label>
+										<select id="music-style" name="music-style" class="form-control">
+										  <option>Rock</option>
+										  <option>Jazz</option>
+										  <option>Blues</option>
+										  <option>Pop</option>
+										  <option>Punk</option>
+										</select>
+									</div>
+							</div>
+							<br>
+							<div class="col-md-12 col-sm-12">
+								<br>
+								<div id="registerErrorMsg" class="alert alert-danger hide">Fehlermeldung</div>
+								<center><button type="submit" class="btn btn-warning"><i class="fa fa-user-plus"></i> {REGISTER}</button></center>
+								<div id="registerSuccessMsg" class="alert alert-success hide">Erfolgsmeldung</div>
+							</div>
+							</form>
+						</div>
+					</div><!-- /.row-->
+				</div><!-- /.modal-body -->
+			</div><!-- /.modal-content -->
+		</div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->
+	
+	<script type="text/javascript" src="/public/js/jquery-birthday-picker.min.js"></script>
+	<script type="text/javascript" src="/public/js/main.js"></script>
+	<script type="text/javascript" src="/public/js/login.js"></script>
+	</body>
+</html>
